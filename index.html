@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Hilton Norfolk The Main - Digital Concierge</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Main Container -->
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="hotel-name">Hilton Norfolk The Main</h1>
+                <div class="header-actions">
+                    <button class="header-btn" id="settingsBtn">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <button class="header-btn" id="userBtn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <main class="main-content">
+            <!-- HOME PAGE -->
+            <div class="page active" id="homePage">
+                <!-- Weather Section -->
+                <div class="glass-card weather-card">
+                    <div class="weather-info">
+                        <div class="weather-main">
+                            <div class="temp">93°F</div>
+                            <div class="condition">Sunny & Hot</div>
+                        </div>
+                        <div class="weather-details">
+                            <div class="location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                Norfolk, VA
+                            </div>
+                            <div class="temp-range">High 96° / Low 77°</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="glass-card quick-actions">
+                    <h3>Quick Actions</h3>
+                    <button class="action-btn primary" onclick="callFrontDesk()">
+                        <i class="fas fa-phone"></i>
+                        Call Front Desk
+                        <span class="subtitle">757-763-6200</span>
+                    </button>
+                    <p class="assistance-note">24/7 assistance available</p>
+                </div>
+
+                <!-- Featured Dining Preview -->
+                <div class="glass-card dining-preview">
+                    <h3>Featured Dining</h3>
+                    <div class="restaurant-preview">
+                        <div class="restaurant-item">
+                            <div class="restaurant-info">
+                                <h4>Saltine <span class="floor">1st Floor</span></h4>
+                                <p>Fresh seafood, seasonal shellfish, and spirits</p>
+                                <span class="status open">Open</span>
+                            </div>
+                            <div class="restaurant-actions">
+                                <button class="small-btn" onclick="callRestaurant('saltine')">
+                                    <i class="fas fa-phone"></i>
+                                </button>
+                                <button class="small-btn" onclick="viewWebsite('saltine')">
+                                    <i class="fas fa-globe"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="restaurant-item">
+                            <div class="restaurant-info">
+                                <h4>Varia <span class="floor">2nd Floor</span></h4>
+                                <p>Trattoria-style Italian fare, piano bar, wine selection</p>
+                                <span class="status busy">Busy</span>
+                            </div>
+                            <div class="restaurant-actions">
+                                <button class="small-btn" onclick="callRestaurant('varia')">
+                                    <i class="fas fa-phone"></i>
+                                </button>
+                                <button class="small-btn" onclick="viewWebsite('varia')">
+                                    <i class="fas fa-globe"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hotel Amenities Grid -->
+                <div class="glass-card amenities-grid">
+                    <h3>Hotel Amenities</h3>
+                    <div class="amenities-container">
+                        <div class="amenity-item">
+                            <i class="fas fa-shopping-cart"></i>
+                            <h4>Market Pantry</h4>
+                            <p>24/7 convenience store</p>
+                            <span class="location">2nd Floor</span>
+                        </div>
+                        <div class="amenity-item">
+                            <i class="fas fa-swimming-pool"></i>
+                            <h4>Indoor Pool</h4>
+                            <p>Climate-controlled</p>
+                            <span class="hours">5th Floor, 6AM-10PM</span>
+                        </div>
+                        <div class="amenity-item">
+                            <i class="fas fa-dumbbell"></i>
+                            <h4>Fitness Center</h4>
+                            <p>24/7 modern equipment</p>
+                            <span class="location">5th Floor</span>
+                        </div>
+                        <div class="amenity-item">
+                            <i class="fas fa-glass-cheers"></i>
+                            <h4>Empyrean Level Lounge</h4>
+                            <p>Exclusive lounge with breakfast/hors d'oeuvres</p>
+                            <span class="location">21st Floor</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Local Attractions Preview -->
+                <div class="glass-card attractions-preview">
+                    <h3>Local Attractions</h3>
+                    <div class="attractions-scroll">
+                        <div class="attraction-item">
+                            <h4>Town Point Park</h4>
+                            <div class="rating">★★★★★ 4.8</div>
+                            <p>7-acre riverfront park, festivals, concerts</p>
+                            <span class="distance">0.1 miles • 2 min walk</span>
+                        </div>
+                        <div class="attraction-item">
+                            <h4>Nauticus & Battleship Wisconsin</h4>
+                            <div class="rating">★★★★★ 4.9</div>
+                            <p>Maritime discovery center</p>
+                            <span class="distance">0.2 miles • 4 min walk</span>
+                        </div>
+                        <div class="attraction-item">
+                            <h4>Chrysler Museum of Art</h4>
+                            <div class="rating">★★★★★ 4.7</div>
+                            <p>30,000+ objects, world-class glass collection</p>
+                            <span class="distance">0.8 miles • 16 min walk</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DINING PAGE -->
+            <div class="page" id="diningPage">
+                <div class="page-header">
+                    <h2>Dining</h2>
+                    <div class="search-filter">
+                        <input type="text" id="restaurantSearch" placeholder="Search restaurants...">
+                        <select id="statusFilter">
+                            <option value="all">All</option>
+                            <option value="open">Open</option>
+                            <option value="busy">Busy</option>
+                            <option value="closed">Closed</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="restaurants-container">
+                    <!-- Saltine -->
+                    <div class="glass-card restaurant-card" data-status="open">
+                        <div class="restaurant-header">
+                            <h3>Saltine <span class="floor">1st Floor Seafood Brasserie</span></h3>
+                            <span class="status open">Open</span>
+                        </div>
+                        <div class="restaurant-details">
+                            <div class="hours-section">
+                                <h4>Hours</h4>
+                                <div class="hours-grid">
+                                    <div class="hour-item">
+                                        <span class="label">Lunch:</span>
+                                        <span>Mon-Fri 11:30 AM-3:00 PM</span>
+                                    </div>
+                                    <div class="hour-item">
+                                        <span class="label">Brunch:</span>
+                                        <span>Sat-Sun 10:00 AM-3:00 PM</span>
+                                    </div>
+                                    <div class="hour-item">
+                                        <span class="label">Dinner:</span>
+                                        <span>Sun-Thu 5:00 PM-11:00 PM | Fri-Sat 5:00 PM-12:00 AM</span>
+                                    </div>
+                                    <div class="hour-item">
+                                        <span class="label">Happy Hour:</span>
+                                        <span>Mon-Fri 3:00 PM-6:00 PM (Raw Bar Menu)</span>
+                                    </div>
+                                    <div class="hour-item">
+                                        <span class="label">In-Room Dining:</span>
+                                        <span>Available daily until 10:30 PM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cuisine-section">
+                                <h4>Cuisine</h4>
+                                <p>Fresh seafood, seasonal shellfish, spirits</p>
+                            </div>
+                            <div class="contact-actions">
+                                <button class="contact-btn" onclick="callRestaurant('saltine')">
+                                    <i class="fas fa-phone"></i> Call
+                                </button>
+                                <button class="contact-btn" onclick="viewWebsite('saltine')">
+                                    <i class="fas fa-globe"></i> Website
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Varia -->
+                    <div class="glass-card restaurant-card" data-status="busy">
+                        <div class="restaurant-header">
+                            <h3>Varia <span class="floor">2nd Floor Italian Trattoria</span></h3>
+                            <span class="status busy">Busy</span>
+                        </div>
+                        <div class="restaurant-details">
+                            <div class="hours-section">
+                                <h4>Hours</h4>
+                                <div class="hours-grid">
+                                    <div class="hour-item">
+                                        <span class="label">Breakfast:</span>
+                                        <span>Daily 7:00 AM-10:00 AM</span>
+                                    </div>
+                                    <div class="hour-item">
+                                        <span class="label">Dinner:</span>
+                                        <span>Tue-Sat 5:00 PM-10:00 PM (Kitchen closes at 10 PM)</span>
+                                    </div>
+                                    <div class="hour-item">
+                                        <span class="label">Happy Hour:</span>
+                                        <span>Tue-Fri 5:00 PM-7:00 PM (Wolf Lounge Only)</span>
+                                    </div>
+                                    <div class="hour-item">
+                                        <span class="label">In-Room Dining:</span>
+                                        <span>Available for breakfast</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cuisine-section">
+                                <h4>Features</h4>
+                                <p>Combination lounge, piano bar, tasting room</p>
+                                <p><strong>Specialties:</strong> Trattoria-style Italian fare, curated wine selection</p>
+                            </div>
+                            <div class="contact-actions">
+                                <button class="contact-btn" onclick="callRestaurant('varia')">
+                                    <i class="fas fa-phone"></i> Call
+                                </button>
+                                <button class="contact-btn" onclick="viewWebsite('varia')">
+                                    <i class="fas fa-globe"></i> Website
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Grain -->
+                    <div class="glass-card restaurant-card" data-status="open">
+                        <div class="restaurant-header">
+                            <h3>Grain <span class="floor">5th Floor Rooftop</span></h3>
+                            <span class="status open">Open</span>
+                        </div>
+                        <div class="restaurant-details">
+                            <div class="hours-section">
+                                <h4>Hours</h4>
+                                <div class="hours-grid">
+                                    <div class="hour-item">
+                                        <span class="label">Mon-Thu:</span>
+                                        <span>12:00 PM-12:00 AM</span>
+                                    </div>
+                                    <div class="hour-item">
+                                        <span class="label">Friday:</span>
+                                        <span>12:00 PM-2:00 AM</span>
+                                    </div>
+                                    <div class="hour-item">
+                                        <span class="label">Saturday:</span>
+                                        <span>4:00 PM-2:00 AM</span>
+                                    </div>
+                                    <div class="hour-item">
+                                        <span class="label">Sunday:</span>
+                                        <span>4:00 PM-12:00 AM</span>
+                                    </div>
+                                    <div class="hour-item">
+                                        <span class="label">Brunch Buffet:</span>
+                                        <span>Sat-Sun 9:00 AM-3:00 PM</span>
+                                    </div>
+                                    <div class="hour-item">
+                                        <span class="label">Happy Hour:</span>
+                                        <span>Mon-Fri 3:00 PM-5:00 PM</span>
+                                    </div>
+                                    <div class="hour-item">
+                                        <span class="label">Kitchen Hours:</span>
+                                        <span>Closes Sun-Thu at 12:00 AM | Fri-Sat at 1:00 AM</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="cuisine-section">
+                                <h4>Features</h4>
+                                <p>Indoor-outdoor rooftop beer garden, patio, fire pit, Elizabeth River views</p>
+                                <p><strong>Note:</strong> No in-room dining available</p>
+                            </div>
+                            <div class="contact-actions">
+                                <button class="contact-btn" onclick="callRestaurant('grain')">
+                                    <i class="fas fa-phone"></i> Call
+                                </button>
+                                <button class="contact-btn" onclick="viewWebsite('grain')">
+                                    <i class="fas fa-globe"></i> Website
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EXPLORE PAGE -->
+            <div class="page" id="explorePage">
+                <div class="page-header">
+                    <h2>Explore Norfolk</h2>
+                    <div class="search-filter">
+                        <input type="text" id="attractionSearch" placeholder="Search attractions...">
+                        <select id="categoryFilter">
+                            <option value="all">All Categories</option>
+                            <option value="nature">Nature & Parks</option>
+                            <option value="museums">Museums & Historic Sites</option>
+                            <option value="entertainment">Entertainment & Live Shows</option>
+                            <option value="shopping">Shopping & Markets</option>
+                            <option value="dining">Dining</option>
+                            <option value="nightlife">Nightlife</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="attractions-container">
+                    <!-- Nature & Parks -->
+                    <div class="category-section" data-category="nature">
+                        <h3>Nature & Parks</h3>
+                        <div class="attractions-grid">
+                            <div class="glass-card attraction-card">
+                                <h4>Town Point Park</h4>
+                                <div class="rating">★★★★★ 4.8</div>
+                                <p>7-acre riverfront park, festivals, concerts</p>
+                                <div class="distance">0.1 miles • 2 min walk</div>
+                            </div>
+                            <div class="glass-card attraction-card">
+                                <h4>Pagoda & Oriental Garden</h4>
+                                <div class="rating">★★★★★ 4.6</div>
+                                <p>Tranquil waterfront with Taiwanese pagoda</p>
+                                <div class="distance">0.3 miles • 6 min walk</div>
+                            </div>
+                            <div class="glass-card attraction-card">
+                                <h4>Elizabeth River Trail</h4>
+                                <div class="rating">★★★★☆ 4.4</div>
+                                <p>Urban trail along former railroad</p>
+                                <div class="distance">0.1 miles • 2 min walk</div>
+                            </div>
+                            <div class="glass-card attraction-card">
+                                <h4>TowneBank Fountain Park</h4>
+                                <div class="rating">★★★★☆ 4.3</div>
+                                <p>Waterfront plaza with fountains</p>
+                                <div class="distance">0.2 miles • 4 min walk</div>
+                            </div>
+                            <div class="glass-card attraction-card">
+                                <h4>Plum Point Park</h4>
+                                <div class="rating">★★★★☆ 4.2</div>
+                                <p>Small riverfront park for picnics</p>
+                                <div class="distance">0.4 miles • 8 min walk</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Museums & Historic Sites -->
+                    <div class="category-section" data-category="museums">
+                        <h3>Museums & Historic Sites</h3>
+                        <div class="attractions-grid">
+                            <div class="glass-card attraction-card">
+                                <h4>Nauticus & Battleship Wisconsin</h4>
+                                <div class="rating">★★★★★ 4.9</div>
+                                <p>Maritime discovery center</p>
+                                <div class="distance">0.2 miles • 4 min walk</div>
+                            </div>
+                            <div class="glass-card attraction-card">
+                                <h4>MacArthur Memorial</h4>
+                                <div class="rating">★★★★★ 4.7</div>
+                                <p>Honoring General MacArthur</p>
+                                <div class="distance">0.3 miles • 6 min walk</div>
+                            </div>
+                            <div class="glass-card attraction-card">
+                                <h4>Chrysler Museum of Art</h4>
+                                <div class="rating">★★★★★ 4.8</div>
+                                <p>30,000+ objects, world-class glass collection</p>
+                                <div class="distance">0.8 miles • 16 min walk</div>
+                            </div>
+                            <div class="glass-card attraction-card">
+                                <h4>Hampton Roads Naval Museum</h4>
+                                <div class="rating">★★★★☆ 4.6</div>
+                                <p>Fleet history inside Nauticus</p>
+                                <div class="distance">0.2 miles • 4 min walk</div>
+                            </div>
+                            <div class="glass-card attraction-card">
+                                <h4>Hunter House Victorian Museum</h4>
+                                <div class="rating">★★★★☆ 4.5</div>
+                                <p>1894 Victorian home</p>
+                                <div class="distance">1.2 miles • 24 min walk</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Entertainment & Live Shows -->
+                    <div class="category-section" data-category="entertainment">
+                        <h3>Entertainment & Live Shows</h3>
+                        <div class="attractions-grid">
+                            <div class="glass-card attraction-card">
+                                <h4>Chrysler Hall</h4>
+                                <div class="rating">★★★★★ 4.9</div>
+                                <p>Premier performing arts center, Broadway shows</p>
+                                <div class="distance">0.4 miles • 8 min walk</div>
+                            </div>
+                            <div class="glass-card attraction-card">
+                                <h4>The NorVa</h4>
+                                <div class="rating">★★★★★ 4.8</div>
+                                <p>Live music venue featured by Rolling Stone</p>
+                                <div class="distance">0.6 miles • 12 min walk</div>
+                            </div>
+                            <div class="glass-card attraction-card">
+                                <h4>Attucks Theatre</h4>
+                                <div class="rating">★★★★★ 4.7</div>
+                                <p>"Apollo of the South" historic venue</p>
+                                <div class="distance">0.5 miles • 10 min walk</div>
+                            </div>
+                            <div class="glass-card attraction-card">
+                                <h4>Harbor Park</h4>
+                                <div class="rating">★★★★☆ 4.6</div>
+                                <p>Norfolk Tides baseball stadium</p>
+                                <div class="distance">0.3 miles • 6 min walk</div>
+                            </div>
+                            <div class="glass-card attraction-card">
+                                <h4>Scope Arena</h4>
+                                <div class="rating">★★★★☆ 4.5</div>
+                                <p>Norfolk Admirals hockey, large events</p>
+                                <div class="distance">0.4 miles • 8 min walk</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shopping & Markets -->
+                    <div class="category-section" data-category="shopping">
+                        <h3>Shopping & Markets</h3>
+                        <div class="attractions-grid">
+                            <div class="glass-card attraction-card">
+                                <h4>Selden Market</h4>
+                                <div class="rating">★★★★★ 4.7</div>
+                                <p>Connected to hotel, 11 retail spaces</p>
+                                <div class="distance">0.0 miles • Connected</div>
+                            </div>
+                            <div class="glass-card attraction-card">
+                                <h4>MacArthur Center</h4>
+                                <div class="rating">★★★★☆ 4.4</div>
+                                <p>Indoor mall with retailers and cinema</p>
+                                <div class="distance">0.3 miles • 6 min walk</div>
+                            </div>
+                            <div class="glass-card attraction-card">
+                                <h4>Waterside District</h4>
+                                <div class="rating">★★★★☆ 4.5</div>
+                                <p>Dining and entertainment complex</p>
+                                <div class="distance">0.2 miles • 4 min walk</div>
+                            </div>
+                            <div class="glass-card attraction-card">
+                                <h4>Prince Books</h4>
+                                <div class="rating">★★★★★ 4.8</div>
+                                <p>Local bookstore with café</p>
+                                <div class="distance">0.5 miles • 10 min walk</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TRANSIT PAGE -->
+            <div class="page" id="transitPage">
+                <div class="page-header">
+                    <h2>Transportation</h2>
+                </div>
+
+                <div class="transit-container">
+                    <!-- Rideshare Services -->
+                    <div class="glass-card transit-section">
+                        <h3>Rideshare Services</h3>
+                        <div class="transit-options">
+                            <div class="transit-option">
+                                <div class="transit-info">
+                                    <h4><i class="fab fa-uber"></i> Uber</h4>
+                                    <p>Various vehicle options, app integration</p>
+                                    <div class="transit-details">
+                                        <span class="cost">$8-15</span>
+                                        <span class="wait-time">Wait: 5-10 min</span>
+                                    </div>
+                                </div>
+                                <button class="transit-btn" onclick="openApp('uber')">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                            <div class="transit-option">
+                                <div class="transit-info">
+                                    <h4><i class="fas fa-car"></i> Lyft</h4>
+                                    <p>Competitive rates, friendly service</p>
+                                    <div class="transit-details">
+                                        <span class="cost">$8-15</span>
+                                        <span class="wait-time">Wait: 5-10 min</span>
+                                    </div>
+                                </div>
+                                <button class="transit-btn" onclick="openApp('lyft')">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Traditional Taxi -->
+                    <div class="glass-card transit-section">
+                        <h3>Traditional Taxi</h3>
+                        <div class="transit-option">
+                            <div class="transit-info">
+                                <h4><i class="fas fa-taxi"></i> Yellow Cab Norfolk</h4>
+                                <p>24/7 availability</p>
+                                <div class="transit-details">
+                                    <span class="cost">$10-20</span>
+                                    <span class="wait-time">Wait: 10-15 min</span>
+                                    <span class="phone">757-460-0000</span>
+                                </div>
+                            </div>
+                            <button class="transit-btn" onclick="callService('757-460-0000')">
+                                <i class="fas fa-phone"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Hotel Services -->
+                    <div class="glass-card transit-section">
+                        <h3>Hotel Services</h3>
+                        <div class="transit-option">
+                            <div class="transit-info">
+                                <h4><i class="fas fa-concierge-bell"></i> Hotel Valet</h4>
+                                <p>Professional parking service</p>
+                                <div class="transit-details">
+                                    <span class="cost">$35/night</span>
+                                    <span class="wait-time">Available: Immediate</span>
+                                    <span class="phone">757-763-6200</span>
+                                </div>
+                            </div>
+                            <button class="transit-btn" onclick="callService('757-763-6200')">
+                                <i class="fas fa-phone"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Public Transportation -->
+                    <div class="glass-card transit-section">
+                        <h3>Public Transportation</h3>
+                        <div class="transit-option">
+                            <div class="transit-info">
+                                <h4><i class="fas fa-bus"></i> Hampton Roads Transit (HRT)</h4>
+                                <p>Local bus service</p>
+                                <div class="transit-details">
+                                    <span class="cost">$1.50</span>
+                                    <span class="wait-time">Time: 15-30 min</span>
+                                </div>
+                            </div>
+                            <button class="transit-btn" onclick="openWebsite('https://gohrt.com')">
+                                <i class="fas fa-globe"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Car Rental -->
+                    <div class="glass-card transit-section">
+                        <h3>Car Rental</h3>
+                        <div class="transit-option">
+                            <div class="transit-info">
+                                <h4><i class="fas fa-car-side"></i> Enterprise Rent-A-Car</h4>
+                                <p>Downtown pickup location</p>
+                                <div class="transit-details">
+                                    <span class="cost">$40-80/day</span>
+                                    <span class="wait-time">Setup: 15-30 min</span>
+                                    <span class="phone">757-622-2855</span>
+                                </div>
+                            </div>
+                            <button class="transit-btn" onclick="callService('757-622-2855')">
+                                <i class="fas fa-phone"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FEEDBACK PAGE -->
+            <div class="page" id="feedbackPage">
+                <div class="page-header">
+                    <h2>Guest Feedback</h2>
+                </div>
+
+                <div class="glass-card feedback-form">
+                    <form id="feedbackForm">
+                        <div class="form-group">
+                            <label for="feedbackCategory">Category *</label>
+                            <select id="feedbackCategory" required>
+                                <option value="">Select a category</option>
+                                <option value="room-service">Room Service</option>
+                                <option value="dining">Dining</option>
+                                <option value="housekeeping">Housekeeping</option>
+                                <option value="front-desk">Front Desk</option>
+                                <option value="amenities">Amenities</option>
+                                <option value="concierge">Concierge Services</option>
+                                <option value="overall">Overall Experience</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Rating *</label>
+                            <div class="star-rating" id="starRating">
+                                <button type="button" class="star" data-rating="1">★</button>
+                                <button type="button" class="star" data-rating="2">★</button>
+                                <button type="button" class="star" data-rating="3">★</button>
+                                <button type="button" class="star" data-rating="4">★</button>
+                                <button type="button" class="star" data-rating="5">★</button>
+                            </div>
+                            <input type="hidden" id="rating" name="rating" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="feedbackMessage">Message *</label>
+                            <textarea id="feedbackMessage" rows="5" placeholder="Please share your feedback..." required maxlength="500"></textarea>
+                            <span class="char-count">0/500</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="anonymous">
+                                <span class="checkmark"></span>
+                                Submit anonymously
+                            </label>
+                        </div>
+
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Feedback
+                        </button>
+                    </form>
+
+                    <div id="feedbackSuccess" class="success-message" style="display: none;">
+                        <i class="fas fa-check-circle"></i>
+                        <h3>Thank you for your feedback!</h3>
+                        <p>Your review has been submitted successfully.</p>
+                    </div>
+                </div>
+
+                <!-- Hotel Contact Info -->
+                <div class="glass-card contact-info">
+                    <h3>Hotel Information</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>100 East Main Street, Norfolk, VA 23510</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>757-763-6200</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-wifi"></i>
+                            <div>
+                                <div><strong>WiFi Network:</strong> HILTON HONORS</div>
+                                <div><strong>Login:</strong> Last name + Room number</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-btn active" data-page="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+            </button>
+            <button class="nav-btn" data-page="dining">
+                <i class="fas fa-utensils"></i>
+                <span>Dining</span>
+            </button>
+            <button class="nav-btn" data-page="explore">
+                <i class="fas fa-compass"></i>
+                <span>Explore</span>
+            </button>
+            <button class="nav-btn" data-page="transit">
+                <i class="fas fa-car"></i>
+                <span>Transit</span>
+            </button>
+            <button class="nav-btn" data-page="feedback">
+                <i class="fas fa-comment"></i>
+                <span>Feedback</span>
+            </button>
+        </nav>
+
+        <!-- Floating Action Button -->
+        <button class="floating-btn" onclick="callFrontDesk()">
+            <i class="fas fa-phone"></i>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
